@@ -8,23 +8,26 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     try {
-        // 🔹 Buscar os agendamentos do usuário logado
         const response = await fetch("http://vistotrack.com:8000/api/agenda/", {
             headers: { "Authorization": `Bearer ${token}` }
         });
 
-        if (!response.ok) {
-            throw new Error("Erro ao carregar agendamentos.");
-        }
+        if (!response.ok) throw new Error("Erro ao carregar agendamentos.");
 
         const agendamentos = await response.json();
         const scheduleTable = document.querySelector("#schedule-table");
+        const feedback = document.querySelector("#empty-feedback");
+        const scheduleList = document.querySelector(".schedule-list");
 
-        scheduleTable.innerHTML = ""; // Limpa a tabela antes de adicionar os dados
+        scheduleTable.innerHTML = ""; // limpa a tabela
 
         if (agendamentos.length === 0) {
-            scheduleTable.innerHTML = `<tr><td colspan="4">Nenhum agendamento encontrado</td></tr>`;
+            scheduleList.style.display = "none";
+            feedback.classList.remove("hidden");
         } else {
+            feedback.classList.add("hidden");
+            scheduleList.style.display = "block";
+
             agendamentos.forEach(ag => {
                 const row = document.createElement("tr");
 
@@ -41,20 +44,19 @@ document.addEventListener("DOMContentLoaded", async function () {
                 scheduleTable.appendChild(row);
             });
 
-            // Adicionar evento de reagendamento
+            // Reagendamento
             document.querySelectorAll(".reschedule-button").forEach(button => {
                 button.addEventListener("click", (event) => {
                     const agendamentoId = event.target.getAttribute("data-id");
                     document.querySelector("#reschedule-id").value = agendamentoId;
-                    document.querySelector("#reschedule-modal").classList.remove("hidden");
+                    abrirModal("reschedule-modal");
                 });
             });
 
-            // Adicionar evento de cancelamento
+            // Cancelamento
             document.querySelectorAll(".cancel-button").forEach(button => {
                 button.addEventListener("click", async (event) => {
                     const agendamentoId = event.target.getAttribute("data-id");
-
                     if (confirm("Tem certeza que deseja cancelar este agendamento?")) {
                         await fetch(`http://vistotrack.com:8000/api/agenda/${agendamentoId}`, {
                             method: "DELETE",
@@ -69,12 +71,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
     } catch (error) {
-        console.error("Erro ao carregar os agendamentos:", error);
+        console.error("Erro ao carregar agendamentos:", error);
         alert("Erro ao carregar os agendamentos. Tente novamente.");
     }
 });
 
-// 🔹 Evento para criar um novo agendamento
+// 🔹 Novo Agendamento
 document.querySelector("#new-schedule-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -100,7 +102,7 @@ document.querySelector("#new-schedule-form").addEventListener("submit", async fu
     }
 });
 
-// 🔹 Evento para reagendar
+// 🔹 Reagendar
 document.querySelector("#reschedule-form").addEventListener("submit", async function (event) {
     event.preventDefault();
 
@@ -125,3 +127,17 @@ document.querySelector("#reschedule-form").addEventListener("submit", async func
         alert("Erro ao reagendar.");
     }
 });
+
+
+// 🔹 Funções utilitárias
+function abrirNovoAgendamento() {
+    abrirModal("new-schedule-modal");
+}
+
+function abrirModal(id) {
+    document.getElementById(id).classList.remove("hidden");
+}
+
+function fecharModal(id) {
+    document.getElementById(id).classList.add("hidden");
+}

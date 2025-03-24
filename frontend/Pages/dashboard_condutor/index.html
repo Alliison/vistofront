@@ -5,38 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard do Condutor</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <!-- <script src="script.js" defer></script> -->
 </head>
 <body>
   <div class="dashboard-container">
-    
-    <!-- Boas-vindas -->
+
     <header class="welcome-header">
-      <h1>Olá, <span id="user-name">Condutor</span> 👋</h1>
+      <h1>Olá, <span id="user-name">Usuário</span> 👋</h1>
       <p>Pronto para sua próxima vistoria?</p>
     </header>
 
-    <!-- Próxima inspeção agendada -->
-    <section class="next-appointment">
-      <h3>Próxima Inspeção</h3>
-      <p><strong>Data:</strong> <span id="next-date">Carregando...</span></p>
-      <p><strong>Local:</strong> <span id="next-location">Carregando...</span></p>
-      <button class="btn-secondary" onclick="window.location.href='<!--../agenda_condutor/-->#'">
-        Alterar Agendamento
-      </button>
+    <section class="quick-actions">
+      <h2>Ações Rápidas</h2>
+      <div class="quick-buttons">
+        <button onclick="abrirModalRelatorios()">📄 Ver Meus Relatórios</button>
+        <button onclick="abrirUltimaVistoria()">🕒 Ver Última Vistoria</button>
+        <button onclick="abrirModalAlterarAgendamento()">🗓️ Alterar Agendamento</button>
+        <button onclick="abrirModalNotificacoes()">🔔 Ver Notificações</button>
+      </div>
     </section>
 
-    <!-- Ações principais -->
-    <section class="primary-action">
-      <button class="btn-primary" onclick="window.location.href='../agenda_condutor/'">
-        🚗 Agendar Nova Inspeção
-      </button>
-      <button class="btn-outline" onclick="window.location.href='../relatorios_condutor/'">
-        📄 Ver Meus Relatórios
-      </button>
-    </section>
-
-    <!-- Resumo das inspeções -->
     <section class="inspection-summary">
       <h2>Status das suas inspeções</h2>
       <div class="summary-cards">
@@ -55,18 +43,16 @@
       </div>
     </section>
 
-    <!-- Informativo: Como funciona a vistoria -->
-    <section class="info-section">
-      <h3>Como funciona a vistoria?</h3>
-      <p>
-        Você agenda online, estaciona o veículo na clausura guiado pelas câmeras
-        e o sistema faz a análise automática em segundos. O relatório completo
-        estará disponível em até 15 minutos.
-      </p>
+    <section class="system-updates">
+      <h2>📢 Atualizações do Sistema</h2>
+      <ul>
+        <li>🚀 Nova funcionalidade: alterar agendamento com justificativa.</li>
+        <li>🔔 Notificações em tempo real implementadas.</li>
+        <li>📷 Em breve: visualização das câmeras ao vivo no pátio.</li>
+      </ul>
     </section>
 
-    <!-- Histórico de inspeções (oculto inicialmente) -->
-    <section class="inspection-history">
+    <section class="inspection-history hidden" id="inspection-history">
       <h2>Histórico de Inspeções</h2>
       <table>
         <thead>
@@ -78,11 +64,55 @@
           </tr>
         </thead>
         <tbody id="inspections-table">
-          <!-- Dados inseridos dinamicamente -->
+          <!-- Dados inseridos via JS -->
         </tbody>
       </table>
     </section>
-    
+
+    <!-- Modais -->
+    <div id="modal-relatorios" class="modal hidden">
+      <div class="modal-content">
+        <h2>Relatórios Recentes</h2>
+        <ul id="lista-relatorios"></ul>
+        <button class="cancel-button" onclick="fecharModal('modal-relatorios')">Fechar</button>
+      </div>
+    </div>
+
+    <div id="modal-alterar-agendamento" class="modal hidden">
+      <div class="modal-content">
+        <h2>Alterar Agendamento</h2>
+        <form id="form-alterar-agendamento">
+          <div class="form-group">
+            <label for="nova-data">Nova Data</label>
+            <input type="date" id="nova-data" required />
+          </div>
+          <div class="form-group">
+            <label for="novo-horario">Novo Horário</label>
+            <input type="time" id="novo-horario" required />
+          </div>
+          <div class="form-group">
+            <label for="justificativa">Justificativa</label>
+            <textarea id="justificativa" rows="3" required></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="submit-button">Confirmar</button>
+            <button type="button" class="cancel-button" onclick="fecharModal('modal-alterar-agendamento')">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="modal-notificacoes" class="modal hidden">
+      <div class="modal-content">
+        <h2>Notificações</h2>
+        <ul id="lista-notificacoes">
+          <li>✔️ Seu veículo foi vistoriado em 22/03</li>
+          <li>📅 Vistoria agendada para 28/03 às 14h</li>
+        </ul>
+        <button class="cancel-button" onclick="fecharModal('modal-notificacoes')">Fechar</button>
+      </div>
+    </div>
+
   </div>
 </body>
 </html>

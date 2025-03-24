@@ -1,261 +1,267 @@
-/* Reset básico */
+/* Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Corpo da página */
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding-top: 3rem;
-    background-color: #f7f9fc;
-    font-family: 'Segoe UI', sans-serif;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  /* Container principal */
-  .dashboard-container {
-    width: 100%;
-    max-width: 90%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-  }
-  
-  /* Header de boas-vindas */
-  .welcome-header {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .welcome-header h1 {
-    font-size: 1.8rem;
-    color: #1f3a93;
-  }
-  
-  .welcome-header p {
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    color: #666;
-  }
-  
-  /* Seção: Próxima inspeção */
-  .next-appointment {
-    width: 100%;
-    text-align: center;
-    background-color: #eaf0fc;
-    border-left: 4px solid #1f3a93;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  }
-  
-  .next-appointment h3 {
-    color: #1f3a93;
-    margin-bottom: 0.5rem;
-  }
-  
-  .next-appointment p {
-    font-size: 0.95rem;
-    margin: 0.2rem 0;
-  }
-  
-  .btn-secondary {
-    margin-top: 0.8rem;
-    background-color: #f0f3f9;
-    color: #1f3a93;
-    padding: 0.5rem 1.2rem;
-    border: 1px solid #1f3a93;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #dce6f9;
-  }
-  
-  /* Ações principais */
-  .primary-action {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-  }
-  
-  .btn-primary {
-    background-color: #1f3a93;
-    color: white;
-    font-size: 1.1rem;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    background-color: #163075;
-  }
-  
-  .btn-outline {
-    background-color: transparent;
-    color: #1f3a93;
-    font-size: 1rem;
-    padding: 0.7rem 1.4rem;
-    border: 1px solid #1f3a93;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-outline:hover {
-    background-color: #eaf0fc;
-  }
-  
-  /* Resumo das inspeções */
-  .inspection-summary {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .inspection-summary h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #1f3a93;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f9fc;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-container {
+  width: 100%;
+  max-width: 1020px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.welcome-header {
+  text-align: center;
+}
+
+.welcome-header h1 {
+  font-size: 2rem;
+  color: #1f3a93;
+}
+
+.quick-actions h2,
+.inspection-summary h2,
+.inspection-history h2,
+.system-updates h2 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #1f3a93;
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.quick-buttons button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #1f3a93;
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quick-buttons button:hover {
+  background-color: #163075;
+}
+
+.summary-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background-color: white;
+  border-left: 5px solid #1f3a93;
+  padding: 2rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.card .label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.card strong {
+  font-size: 1.4rem;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.inspection-history,
+.system-updates {
+  width: 100%;
+}
+
+.inspection-history table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f0f3f9;
+  font-weight: bold;
+  color: #333;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  color: #1f3a93;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.modal-content ul li {
+  padding: 0.6rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.modal-content ul li:last-child {
+  border-bottom: none;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.submit-button, .cancel-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #1f3a93;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #163075;
+}
+
+.cancel-button {
+  background-color: #ccc;
+  color: #333;
+}
+
+.cancel-button:hover {
+  background-color: #aaa;
+}
+
+.system-updates {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-left: 5px solid #1f3a93;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.system-updates ul {
+  list-style: none;
+  padding-left: 0;
+  color: #444;
+}
+
+.system-updates ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.system-updates ul li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  color: #1f3a93;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (min-width: 600px) {
   .summary-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    justify-content: center;
+    flex-direction: row;
   }
-  
   .card {
-    background-color: white;
-    border-left: 5px solid #1f3a93;
-    padding: 1rem;
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    text-align: center;
+    flex: 1;
   }
-  
-  .card .label {
-    font-size: 0.9rem;
-    color: #666;
+  .quick-buttons {
+    justify-content: space-evenly;
   }
-  
-  .card strong {
-    font-size: 1.4rem;
-    display: block;
-    margin-top: 0.3rem;
-  }
-  
-  /* Seção informativa */
-  .info-section {
-    width: 100%;
-    background-color: #fff;
-    padding: 1.2rem;
-    border-left: 4px solid #1f3a93;
-    border-radius: 6px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-  }
-  
-  .info-section h3 {
-    font-size: 1.2rem;
-    color: #1f3a93;
-    margin-bottom: 0.5rem;
-  }
-  
-  .info-section p {
-    font-size: 0.95rem;
-    color: #444;
-  }
-  
-  /* Histórico de inspeções (oculto por padrão) */
-  .inspection-history {
-    margin-top: 4rem;
-    width: 100%;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
-    pointer-events: none;
-  }
-  
-  .inspection-history.show-history {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-  
-  .inspection-history::before {
-    content: '';
-    display: block;
-    height: 2rem;
-    border-top: 1px solid #ddd;
-    margin-bottom: 2rem;
-  }
-  
-  /* Tabela */
-  .inspection-history h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    color: #1f3a93;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: white;
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-  }
-  
-  th, td {
-    padding: 0.75rem;
-    text-align: left;
-    font-size: 0.95rem;
-    border-bottom: 1px solid #eee;
-  }
-  
-  th {
-    background-color: #f0f3f9;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  tr:last-child td {
-    border-bottom: none;
-  }
-  
-  /* Responsividade */
-  @media (min-width: 600px) {
-    .summary-cards {
-      flex-direction: row;
-    }
-  
-    .card {
-      flex: 1;
-    }
-  
-    .primary-action {
-      flex-direction: row;
-      justify-content: center;
-    }
-  
-    .primary-action button {
-      margin: 0 0.5rem;
-    }
-  }
-  
+}

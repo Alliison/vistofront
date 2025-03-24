@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Notificações</title>
+    <link rel="stylesheet" href="notificacoes.css">
+</head>
+<body>
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2>Notificações</h2>
+            <ul class="notification-list">
+                <li class="notification-item">
+                    <span class="message">Sua inspeção foi agendada para 15/02/2025 às 10h.</span>
+                    <span class="time">Há 2 minutos</span>
+                </li>
+                <li class="notification-item">
+                    <span class="message">Relatório da vistoria do veículo XYZ-5678 está disponível.</span>
+                    <span class="time">Há 30 minutos</span>
+                </li>
+                <li class="notification-item">
+                    <span class="message">Nova atualização disponível no sistema.</span>
+                    <span class="time">Ontem</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function openModal() {
+            document.getElementById("notificationModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("notificationModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

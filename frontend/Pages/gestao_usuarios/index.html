@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Usuários</title>
+    <link rel="stylesheet" href="gestao.css">
+    <script>
+        function toggleEdit(row) {
+            row.classList.toggle('editable');
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestão de Usuários</h1>
+        </header>
+        
+        <div class="user-actions">
+            <button class="add-user">Adicionar Usuário</button>
+        </div>
+        
+        <div class="user-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Tipo</th>
+                        <th>Senha</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onclick="toggleEdit(this)">
+                        <td>João Silva</td>
+                        <td>joao@email.com</td>
+                        <td>Inspetor</td>
+                        <td>
+                            <input type="password" class="user-password" maxlength="3" pattern="^(?!123|234|345|456|567|678|789|890|012|098|987|876|765|654|543|432|321|210)[0-9]{3}$" title="A senha deve conter 3 números não sequenciais">
+                        </td>
+                        <td>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <button class="edit">Editar</button>
+                        </td>
+                    </tr>
+                    <tr onclick="toggleEdit(this)">
+                        <td>Maria Souza</td>
+                        <td>maria@email.com</td>
+                        <td>Administrador</td>
+                        <td>
+                            <input type="password" class="user-password" maxlength="3" pattern="^(?!123|234|345|456|567|678|789|890|012|098|987|876|765|654|543|432|321|210)[0-9]{3}$" title="A senha deve conter 3 números não sequenciais">
+                        </td>
+                        <td>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <button class="edit">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

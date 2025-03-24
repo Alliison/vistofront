@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Veículo - VistoTrack</title>
+    <link rel="stylesheet" href="veiculos.css">
+</head>
+<body>
+    <div class="vehicle-registration-container">
+        <h1>Cadastro de Veículo</h1>
+        <form action="/register-vehicle" method="POST">
+            <!-- Campo de Pesquisa do Usuário -->
+            <div class="form-group user-search-group">
+                <label for="user-search">Pesquisar Usuário</label>
+                <div class="input-with-icon">
+                    <input type="text" id="user-search" name="user-search" placeholder="Digite o nome, email ou telefone do condutor" required>
+                    <button type="button" class="search-button">
+                        <img src="search-icon.svg" alt="Pesquisar">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Placa do Veículo -->
+            <div class="form-group">
+                <label for="placa">Placa</label>
+                <input type="text" id="placa" name="placa" placeholder="Digite a placa do veículo" required>
+            </div>
+
+            <!-- Modelo do Veículo -->
+            <div class="form-group">
+                <label for="modelo">Modelo</label>
+                <input type="text" id="modelo" name="modelo" placeholder="Digite o modelo do veículo" required>
+            </div>
+
+            <!-- Cor do Veículo -->
+            <div class="form-group">
+                <label for="cor">Cor</label>
+                <input type="text" id="cor" name="cor" placeholder="Digite a cor do veículo" required>
+            </div>
+
+            <!-- Ano do Veículo -->
+            <div class="form-group">
+                <label for="ano">Ano</label>
+                <input type="number" id="ano" name="ano" placeholder="Digite o ano do veículo" required>
+            </div>
+
+            <!-- Botão de Cadastro -->
+            <div class="form-group">
+                <button type="submit">Cadastrar Veículo</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

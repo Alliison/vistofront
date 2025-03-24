@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - VistoTrack</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" type="module"></script>  <!-- 🔹 Agora o script agenda.js será carregado corretamente -->
+</head>
+<body>
+    <div class="driver-schedule-container">
+        <h1>Meus Agendamentos</h1>
+
+        <!-- Lista de Agendamentos -->
+        <div class="schedule-list">
+            <h2>Agendamentos Atuais</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Horário</th>
+                        <th>Local</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-table">
+                    <tr><td colspan="4">Carregando agendamentos...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botão para Novo Agendamento -->
+        <div class="action-new-schedule">
+            <button id="new-schedule-button">Novo Agendamento</button>
+        </div>
+
+        <!-- Modal para Novo Agendamento -->
+        <div id="new-schedule-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Novo Agendamento</h2>
+                <form id="new-schedule-form">
+                    <div class="form-group">
+                        <label for="date">Data</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Horário</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Local</label>
+                        <select id="location" name="location" required>
+                            <option value="">Selecione um local</option>
+                            <option value="Pátio Central">Pátio Central</option>
+                            <option value="Pátio Sul">Pátio Sul</option>
+                            <option value="Pátio Norte">Pátio Norte</option>
+                        </select>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="submit-button">Criar Agendamento</button>
+                        <button type="button" class="cancel-button">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal para Reagendamento -->
+        <div id="reschedule-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Reagendar</h2>
+                <form id="reschedule-form">
+                    <input type="hidden" id="reschedule-id">
+                    <div class="form-group">
+                        <label for="new-date">Nova Data</label>
+                        <input type="date" id="new-date" name="new-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-time">Novo Horário</label>
+                        <input type="time" id="new-time" name="new-time" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="submit-button">Confirmar</button>
+                        <button type="button" class="cancel-button">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

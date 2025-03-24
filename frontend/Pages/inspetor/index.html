@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Inspeção - VistoTrack</title>
+    <link rel="stylesheet" href="inspetor.css">
+</head>
+<body>
+    <div class="report-container">
+        <h1>Relatório de Inspeção</h1>
+
+        <!-- Informações do Veículo -->
+        <div class="vehicle-info">
+            <h2>Informações do Veículo</h2>
+            <p><strong>Placa:</strong> ABC-1234</p>
+            <p><strong>Modelo:</strong> Modelo do Veículo</p>
+            <p><strong>Cor:</strong> Cor do Veículo</p>
+            <p><strong>Ano:</strong> 2023</p>
+        </div>
+
+        <!-- Detalhes das Avarias -->
+        <div class="damages">
+            <h2>Avarias Detectadas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo de Avaria</th>
+                        <th>Descrição</th>
+                        <th>Gravidade</th>
+                        <th>Imagem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Risco</td>
+                        <td>Risco no para-choque traseiro</td>
+                        <td>Moderada</td>
+                        <td><img src="damage-image-1.jpg" alt="Avaria 1" width="100"></td>
+                    </tr>
+                    <tr>
+                        <td>Amassado</td>
+                        <td>Amassado na porta dianteira</td>
+                        <td>Severa</td>
+                        <td><img src="damage-image-2.jpg" alt="Avaria 2" width="100"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Observações do Inspetor -->
+        <div class="inspector-notes">
+            <h2>Observações do Inspetor</h2>
+            <textarea id="inspector-notes" placeholder="Adicione suas observações aqui..." rows="5"></textarea>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="action-buttons">
+            <button type="button" class="approve-button">Aprovar</button>
+            <button type="button" class="reject-button">Rejeitar</button>
+        </div>
+    </div>
+</body>
+</html>

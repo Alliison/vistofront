@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Inspetor</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dashboard do Inspetor</h1>
+        </header>
+        
+        <div class="dashboard-summary">
+            <div class="summary-box">Pendentes: <strong>5</strong></div>
+            <div class="summary-box">Em Andamento: <strong>2</strong></div>
+            <div class="summary-box">Concluídas: <strong>10</strong></div>
+        </div>
+
+        <button class="consult-agenda">Consultar Agenda</button>
+        
+        <div class="inspections-list">
+            <h2>Últimas Inspeções</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ABC-1234</td>
+                        <td>Corolla</td>
+                        <td>Pendente</td>
+                        <td><button>Ver Detalhes</button></td>
+                    </tr>
+                    <tr>
+                        <td>XYZ-5678</td>
+                        <td>Civic</td>
+                        <td>Concluído</td>
+                        <td><button>Ver Relatório</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Condutor</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dashboard do Condutor</h1>
+        </header>
+
+        <!-- Seção com Resumo dos Agendamentos -->
+        <div class="dashboard-summary">
+            <div class="summary-box">Agendamentos Pendentes: <strong class="pending-inspections">Carregando...</strong></div>
+            <div class="summary-box">Agendamentos Concluídos: <strong class="completed-inspections">Carregando...</strong></div>
+            <div class="summary-box">Último Agendamento: <strong class="last-inspection">Carregando...</strong></div>
+        </div>
+
+        <!-- Botão para Agendar Nova Inspeção -->
+        <button class="schedule-inspection" onclick="window.location.href='../agenda_condutor/'">Agendar Nova Inspeção</button>
+
+        <!-- Lista de Inspeções -->
+        <div class="inspections-list">
+            <h2>Histórico de Inspeções</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Placa</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="inspections-table">
+                    <!-- Os dados das inspeções serão carregados dinamicamente -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Relatórios - VistoTrack</title>
+    <link rel="stylesheet" href="relatorio.css">
+</head>
+<body>
+    <div class="report-management-container">
+        <h1>Gestão de Relatórios</h1>
+
+        <!-- Filtros de Pesquisa -->
+        <div class="filters">
+            <h2>Pesquisar Relatórios</h2>
+            <form id="filter-form">
+                <div class="form-group">
+                    <label for="report-date">Data</label>
+                    <input type="date" id="report-date" name="report-date">
+                </div>
+                <div class="form-group">
+                    <label for="vehicle-plate">Placa do Veículo</label>
+                    <input type="text" id="vehicle-plate" name="vehicle-plate" placeholder="Digite a placa">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Filtrar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Lista de Relatórios -->
+        <div class="report-list">
+            <h2>Relatórios</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Inspetor</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>22/01/2025</td>
+                        <td>ABC-1234</td>
+                        <td>Modelo do Veículo</td>
+                        <td>Inspetor Nome</td>
+                        <td>
+                            <button class="view-button">Visualizar</button>
+                            <button class="export-button" data-format="pdf">Exportar PDF</button>
+                            <button class="export-button" data-format="xlsx">Exportar XLSX</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>23/01/2025</td>
+                        <td>XYZ-5678</td>
+                        <td>Outro Modelo</td>
+                        <td>Outro Inspetor</td>
+                        <td>
+                            <button class="view-button">Visualizar</button>
+                            <button class="export-button" data-format="pdf">Exportar PDF</button>
+                            <button class="export-button" data-format="xlsx">Exportar XLSX</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal de Visualização do Relatório -->
+        <div id="report-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Relatório Detalhado</h2>
+                <div id="report-content">
+                    <!-- Modelo HTML para o relatório gerado dinamicamente -->
+                    <p><strong>Data:</strong> 22/01/2025</p>
+                    <p><strong>Placa:</strong> ABC-1234</p>
+                    <p><strong>Modelo:</strong> Modelo do Veículo</p>
+                    <p><strong>Inspetor:</strong> Inspetor Nome</p>
+                    <p><strong>Descrição:</strong> Este é um relatório de exemplo gerado dinamicamente.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="close-button">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const viewButtons = document.querySelectorAll('.view-button');
+        const exportButtons = document.querySelectorAll('.export-button');
+        const modal = document.getElementById('report-modal');
+        const closeButton = document.querySelector('.close-button');
+
+        viewButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        exportButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const format = button.dataset.format;
+                alert(`Exportando relatório em formato ${format.toUpperCase()}`);
+                // Lógica de exportação será implementada aqui
+            });
+        });
+    </script>
+</body>
+</html>

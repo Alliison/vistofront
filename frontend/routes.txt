@@ -1,0 +1,159 @@
+# routes.txt
+
+# ROTAS DE AGENDAMENTOS
+POST /create-schedule
+Descrição: Criação de um novo agendamento.
+
+POST /reschedule
+Descrição: Reagendamento de um agendamento existente.
+
+DELETE /cancel-schedule/{id}
+Descrição: Cancelamento de um agendamento específico.
+
+GET /schedules
+Descrição: Listagem de todos os agendamentos.
+
+GET /schedules/{id}
+Descrição: Obtém os detalhes de um agendamento específico.
+
+PATCH /schedules/{id}
+Descrição: Atualiza informações de um agendamento.
+
+# ROTAS DE NOTIFICAÇÕES
+GET /notifications
+Descrição: Obtém a lista de notificações.
+
+DELETE /notifications/{id}
+Descrição: Deleta uma notificação específica.
+
+PATCH /notifications/{id}/mark-as-read
+Descrição: Marca uma notificação como lida.
+
+# ROTAS DE RELATÓRIOS
+GET /reports
+Descrição: Obtém a lista de relatórios.
+
+GET /reports/{id}
+Descrição: Obtém detalhes de um relatório específico.
+
+POST /reports/generate
+Descrição: Gera um novo relatório sob demanda.
+
+DELETE /reports/{id}
+Descrição: Deleta um relatório específico.
+
+# ROTAS DE INSPEÇÕES
+GET /inspections
+Descrição: Obtém a lista de inspeções realizadas.
+
+GET /inspections/{id}
+Descrição: Obtém detalhes de uma inspeção específica.
+
+POST /start-inspection
+Descrição: Inicia uma nova inspeção.
+
+POST /complete-inspection
+Descrição: Finaliza uma inspeção.
+
+PATCH /inspections/{id}/update
+Descrição: Atualiza dados de uma inspeção antes de seu fechamento.
+
+DELETE /inspections/{id}
+Descrição: Remove uma inspeção específica.
+
+# ROTAS DE VEÍCULOS
+GET /vehicles
+Descrição: Obtém a lista de veículos cadastrados.
+
+POST /vehicles
+Descrição: Cadastra um novo veículo.
+
+GET /vehicles/{id}
+Descrição: Obtém detalhes de um veículo específico.
+
+PATCH /vehicles/{id}
+Descrição: Atualiza informações de um veículo.
+
+DELETE /vehicles/{id}
+Descrição: Remove um veículo específico.
+
+# ROTAS DE USUÁRIOS
+GET /users
+Descrição: Obtém a lista de usuários cadastrados.
+
+POST /users
+Descrição: Criação de um novo usuário.
+
+GET /users/{id}
+Descrição: Obtém detalhes de um usuário específico.
+
+PATCH /users/{id}
+Descrição: Atualiza informações de um usuário.
+
+DELETE /delete-user/{id}
+Descrição: Remove um usuário específico.
+
+# ROTAS DE PROCESSOS E STATUS
+GET /processes/{name}/status
+Descrição: Obtém o status de um processo específico.
+
+# SEGURANÇA E AUTENTICAÇÃO
+POST /auth/login
+Descrição: Autenticação de usuários.
+
+POST /auth/logout
+Descrição: Logout do usuário.
+
+POST /auth/register
+Descrição: Cadastro de um novo usuário.
+
+POST /auth/password-reset
+Descrição: Solicitação de redefinição de senha.
+
+PATCH /auth/password-update
+Descrição: Atualização de senha do usuário.
+
+# INTEGRAÇÃO E SINCRONIZAÇÃO
+POST /data/import
+Descrição: Importação de dados para o sistema.
+
+POST /data/export
+Descrição: Exportação de dados do sistema.
+
+GET /data/sync-status
+Descrição: Obtém o status da sincronização de dados.
+
+PATCH /data/sync-resolve
+Descrição: Resolve conflitos de sincronização de dados.
+
+# MONITORAMENTO E LOGS
+GET /logs
+Descrição: Obtém os logs do sistema para auditoria.
+
+GET /logs/{id}
+Descrição: Obtém detalhes de um log específico.
+
+DELETE /logs/{id}
+Descrição: Deleta um log específico.
+
+# SUPORTE E FEEDBACK
+POST /support/ticket
+Descrição: Criação de um novo ticket de suporte.
+
+GET /support/tickets
+Descrição: Obtém a lista de tickets de suporte.
+
+GET /support/tickets/{id}
+Descrição: Obtém detalhes de um ticket de suporte.
+
+PATCH /support/tickets/{id}/update
+Descrição: Atualiza um ticket de suporte.
+
+DELETE /support/tickets/{id}
+Descrição: Remove um ticket de suporte.
+
+POST /feedback
+Descrição: Envia um feedback sobre o sistema.
+
+GET /feedback
+Descrição: Obtém os feedbacks recebidos.

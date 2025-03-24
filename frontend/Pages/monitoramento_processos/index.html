@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Processos</title>
+    <link rel="stylesheet" href="monitorar.css">
+</head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento de Processos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .process-status table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .process-status th, .process-status td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        .process-status th {
+            background-color: #17a2b8;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Monitoramento de Processos</h1>
+        </header>
+        
+        <div class="process-status">
+            <h2>Status dos Processos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Processo</th>
+                        <th>Acompanhamento</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Reconhecimento de Placas</td>
+                        <td>Processando imagens em tempo real</td>
+                        <td>Online</td>
+                    </tr>
+                    <tr>
+                        <td>Comparação de Imagens</td>
+                        <td>Executando análise comparativa</td>
+                        <td>Online</td>
+                    </tr>
+                    <tr>
+                        <td>Análise de Anomalias</td>
+                        <td>Aguardando novos dados</td>
+                        <td>Delay</td>
+                    </tr>
+                    <tr>
+                        <td>Banco de Dados</td>
+                        <td>Consultas e armazenamento</td>
+                        <td>Online</td>
+                    </tr>
+                    <tr>
+                        <td>API de Comunicação</td>
+                        <td>Sincronização entre módulos</td>
+                        <td>Offline</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+</html>

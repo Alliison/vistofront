@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda do Inspetor - VistoTrack</title>
+    <link rel="stylesheet" href="agenda.css">
+</head>
+<body>
+    <div class="schedule-container">
+        <h1>Minha Agenda</h1>
+
+        <!-- Navegação de Visualização -->
+        <div class="view-navigation">
+            <button class="view-button" data-view="monthly">Mensal</button>
+            <button class="view-button" data-view="weekly">Semanal</button>
+            <button class="view-button" data-view="daily">Diária</button>
+        </div>
+
+        <!-- Visualização Mensal -->
+        <div class="monthly-view">
+            <h2>Janeiro 2025</h2>
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>Dom</th>
+                        <th>Seg</th>
+                        <th>Ter</th>
+                        <th>Qua</th>
+                        <th>Qui</th>
+                        <th>Sex</th>
+                        <th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td>
+                    </tr>
+                    <tr>
+                        <td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td>
+                    </tr>
+                    <tr>
+                        <td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td>
+                    </tr>
+                    <tr>
+                        <td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td>
+                    </tr>
+                    <tr>
+                        <td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Modal para Solicitar Revisão -->
+        <div id="reschedule-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Solicitar Revisão de Agendamento</h2>
+                <form action="/request-reschedule" method="POST">
+                    <div class="form-group">
+                        <label for="reason">Motivo da Revisão</label>
+                        <textarea id="reason" name="reason" placeholder="Explique o motivo da solicitação..." rows="4" required></textarea>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="submit-button">Enviar Solicitação</button>
+                        <button type="button" class="cancel-button">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const viewButtons = document.querySelectorAll('.view-button');
+        const modal = document.getElementById('reschedule-modal');
+        const cancelButton = document.querySelector('.cancel-button');
+
+        viewButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                alert(`Em breve essa função estará disponível.`);
+                // Aqui poderá ser implementada a lógica de troca de visualização
+            });
+        });
+
+        cancelButton.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -22,10 +22,19 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         const agendaData = await response.json();
 
-        // 🔹 Atualizar as labels no HTML
+        // 🔹 Atualizar os indicadores
         document.querySelector(".pending-inspections").textContent = agendaData.pendentes || 0;
         document.querySelector(".completed-inspections").textContent = agendaData.concluidos || 0;
         document.querySelector(".last-inspection").textContent = agendaData.ultimo_agendamento || "Nenhum agendamento encontrado";
+
+        // 🔹 Preencher a seção "Próxima Inspeção"
+        if (agendaData.proximo_agendamento) {
+            document.getElementById("next-date").textContent = agendaData.proximo_agendamento.data || "Não informado";
+            document.getElementById("next-location").textContent = agendaData.proximo_agendamento.local || "Não informado";
+        } else {
+            document.getElementById("next-date").textContent = "Nenhum agendamento";
+            document.getElementById("next-location").textContent = "-";
+        }
 
         // 🔹 Buscar o histórico de inspeções
         const inspectionsResponse = await fetch("https://vistotrack.com/api/inspecoes/", {
@@ -42,8 +51,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const inspectionsData = await inspectionsResponse.json();
         const tableBody = document.querySelector("#inspections-table");
 
-        // Limpar a tabela antes de popular os dados
-        tableBody.innerHTML = "";
+        tableBody.innerHTML = ""; // Limpar tabela
 
         if (inspectionsData.length === 0) {
             tableBody.innerHTML = `<tr><td colspan="4">Nenhuma inspeção encontrada</td></tr>`;
@@ -60,11 +68,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 
                 tableBody.appendChild(row);
             });
+
+            // 🔹 Exibir o histórico visualmente se houver dados
+            document.querySelector(".inspection-history").classList.add("show-history");
         }
 
     } catch (error) {
         console.error("Erro ao carregar os agendamentos:", error);
-        alert("Erro ao carregar os agendamentos. Tente novamente.");
+        alert("Erro ao carregar os dados. Tente novamente.");
     }
 });
 
@@ -72,5 +83,5 @@ document.addEventListener("DOMContentLoaded", async function () {
  * Função para visualizar detalhes da inspeção
  */
 function verDetalhes(inspecaoId) {
-    window.location.href = `#`;
+    window.location.href = `../relatorio_condutor/?id=${inspecaoId}`;
 }

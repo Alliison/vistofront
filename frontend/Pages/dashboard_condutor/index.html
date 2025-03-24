@@ -1,45 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard do Condutor</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard do Condutor</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- <script src="script.js" defer></script> -->
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Dashboard do Condutor</h1>
-        </header>
+  <div class="dashboard-container">
+    
+    <!-- Boas-vindas -->
+    <header class="welcome-header">
+      <h1>Olá, <span id="user-name">Condutor</span> 👋</h1>
+      <p>Pronto para sua próxima vistoria?</p>
+    </header>
 
-        <!-- Seção com Resumo dos Agendamentos -->
-        <div class="dashboard-summary">
-            <div class="summary-box">Agendamentos Pendentes: <strong class="pending-inspections">Carregando...</strong></div>
-            <div class="summary-box">Agendamentos Concluídos: <strong class="completed-inspections">Carregando...</strong></div>
-            <div class="summary-box">Último Agendamento: <strong class="last-inspection">Carregando...</strong></div>
+    <!-- Próxima inspeção agendada -->
+    <section class="next-appointment">
+      <h3>Próxima Inspeção</h3>
+      <p><strong>Data:</strong> <span id="next-date">Carregando...</span></p>
+      <p><strong>Local:</strong> <span id="next-location">Carregando...</span></p>
+      <button class="btn-secondary" onclick="window.location.href='../agenda_condutor/'">
+        Alterar Agendamento
+      </button>
+    </section>
+
+    <!-- Ações principais -->
+    <section class="primary-action">
+      <button class="btn-primary" onclick="window.location.href='../agenda_condutor/'">
+        🚗 Agendar Nova Inspeção
+      </button>
+      <button class="btn-outline" onclick="window.location.href='../relatorios_condutor/'">
+        📄 Ver Meus Relatórios
+      </button>
+    </section>
+
+    <!-- Resumo das inspeções -->
+    <section class="inspection-summary">
+      <h2>Status das suas inspeções</h2>
+      <div class="summary-cards">
+        <div class="card">
+          <span class="label">Pendentes</span>
+          <strong class="pending-inspections">Carregando...</strong>
         </div>
-
-        <!-- Botão para Agendar Nova Inspeção -->
-        <button class="schedule-inspection" onclick="window.location.href='../agenda_condutor/'">Agendar Nova Inspeção</button>
-
-        <!-- Lista de Inspeções -->
-        <div class="inspections-list">
-            <h2>Histórico de Inspeções</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Data</th>
-                        <th>Placa</th>
-                        <th>Status</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-                <tbody id="inspections-table">
-                    <!-- Os dados das inspeções serão carregados dinamicamente -->
-                </tbody>
-            </table>
+        <div class="card">
+          <span class="label">Concluídas</span>
+          <strong class="completed-inspections">Carregando...</strong>
         </div>
-    </div>
+        <div class="card">
+          <span class="label">Última Inspeção</span>
+          <strong class="last-inspection">Carregando...</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Informativo: Como funciona a vistoria -->
+    <section class="info-section">
+      <h3>Como funciona a vistoria?</h3>
+      <p>
+        Você agenda online, estaciona o veículo na clausura guiado pelas câmeras
+        e o sistema faz a análise automática em segundos. O relatório completo
+        estará disponível em até 15 minutos.
+      </p>
+    </section>
+
+    <!-- Histórico de inspeções (oculto inicialmente) -->
+    <section class="inspection-history">
+      <h2>Histórico de Inspeções</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Placa</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody id="inspections-table">
+          <!-- Dados inseridos dinamicamente -->
+        </tbody>
+      </table>
+    </section>
+    
+  </div>
 </body>
 </html>

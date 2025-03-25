@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Redirecionamento com base no perfil
             if (data.role === "user") {
-                window.location.href = "../dashboard_condutor/";
+                window.location.href = "../dashboard_inspetor/";
             } else {
                 window.location.href = "../dashboard_inspetor/";
             }

@@ -5,7 +5,7 @@
     box-sizing: border-box;
   }
   
-  /* Estrutura principal */
+  /* Base */
   body {
     background-color: #f7f9fc;
     font-family: 'Segoe UI', sans-serif;
@@ -30,7 +30,7 @@
     color: #1f3a93;
   }
   
-  /* Botão de adicionar usuário */
+  /* Botão adicionar */
   .user-actions {
     text-align: right;
   }
@@ -172,6 +172,7 @@
     color: #1f3a93;
   }
   
+  /* Formulário do modal */
   .form-group {
     margin-bottom: 1rem;
   }
@@ -193,7 +194,7 @@
     border-radius: 6px;
   }
   
-  /* Botões do modal */
+  /* Ações do modal */
   .modal-actions {
     display: flex;
     justify-content: flex-end;

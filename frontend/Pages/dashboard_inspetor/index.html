@@ -1,52 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard do Inspetor</title>
-    <link rel="stylesheet" href="dashboard.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard do Inspetor</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Dashboard do Inspetor</h1>
-        </header>
-        
-        <div class="dashboard-summary">
-            <div class="summary-box">Pendentes: <strong>5</strong></div>
-            <div class="summary-box">Em Andamento: <strong>2</strong></div>
-            <div class="summary-box">Concluídas: <strong>10</strong></div>
-        </div>
-
-        <button class="consult-agenda">Consultar Agenda</button>
-        
-        <div class="inspections-list">
-            <h2>Últimas Inspeções</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Placa</th>
-                        <th>Modelo</th>
-                        <th>Status</th>
-                        <th>Ação</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>ABC-1234</td>
-                        <td>Corolla</td>
-                        <td>Pendente</td>
-                        <td><button>Ver Detalhes</button></td>
-                    </tr>
-                    <tr>
-                        <td>XYZ-5678</td>
-                        <td>Civic</td>
-                        <td>Concluído</td>
-                        <td><button>Ver Relatório</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1>Olá, <span id="inspetor-nome">Inspetor</span> 👋</h1>
+      <span id="modo-operacao" class="status-indicador" title="Indica seu estado atual no sistema (Disponível, Em inspeção, Indisponível)">🔴 Indisponível</span>
     </div>
+    <div id="relogio-digital">--:--:--</div>
+    <button class="perfil-button" onclick="abrirModalPerfil()">👮 Meu Perfil</button>
+  </div>
+
+  <div class="layout">
+    <!-- Painel Lateral -->
+    <aside class="sidebar">
+      <section class="sidebar-summary">
+        <div class="summary-box">Pendentes:<br><strong id="pendentes">--</strong></div>
+        <div class="summary-box">Andamento:<br><strong id="andamento">--</strong></div>
+        <div class="summary-box">Concluídas:<br><strong id="concluidas">--</strong></div>
+      </section>
+
+      <section class="sidebar-actions">
+        <button onclick="iniciarProximaInspecao()">🚗 Iniciar Inspeção</button>
+        <button onclick="abrirModalNovaCamera()">📷 Nova Câmera</button>
+        <!-- <button onclick="abrirModalPerfil()">👤 Meu Perfil</button> -->
+      </section>
+
+      <section class="sidebar-agenda">
+        <h3>📅 Próximas Inspeções</h3>
+        <ul id="inspecoes-hoje">
+          <li>Carregando...</li>
+        </ul>
+      </section>
+
+      <section class="sidebar-cameras">
+        <h3>📡 Câmeras Ativas</h3>
+        <div id="lista-cameras" class="camera-grid">
+          <iframe src="rtmp://vistotrack.com/live/camera1" title="Camera 1"></iframe>
+          <iframe src="rtmp://vistotrack.com/live/camera2" title="Camera 2"></iframe>
+          <iframe src="rtmp://vistotrack.com/live/camera3" title="Camera 3"></iframe>
+          <iframe src="rtmp://vistotrack.com/live/camera4" title="Camera 4"></iframe>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+
+      <div class="main-columns">
+        <section class="notificacoes">
+          <h2>🔔 Notificações</h2>
+          <ul id="lista-alertas">
+            <li>Sem alertas no momento.</li>
+          </ul>
+        </section>
+
+        <section class="atualizacoes">
+          <h2>🆕 Novidades</h2>
+          <ul>
+            <li>Bem-vindo ao novo painel do inspetor.</li>
+            <li>Agora você pode adicionar câmeras manualmente.</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="inspections-list">
+        <h2>📂 Últimas Inspeções</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Placa</th>
+              <th>Modelo</th>
+              <th>Status</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody id="historico-inspecoes">
+            <tr><td colspan="4">Carregando inspeções...</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="current-inspection hidden" id="inspecao-atual">
+        <h2>🛠️ Inspeção em Andamento</h2>
+        <p><strong>Placa:</strong> <span id="inspecao-placa">---</span></p>
+        <p><strong>Modelo:</strong> <span id="inspecao-modelo">---</span></p>
+        <p><strong>Iniciada em:</strong> <span id="inspecao-inicio">---</span></p>
+        <button onclick="abrirModalFinalizar()">🛑 Finalizar Inspeção</button>
+      </section>
+
+      <section class="vehicle-info hidden" id="ficha-veiculo">
+        <h2>📋 Ficha do Veículo</h2>
+        <img id="imagem-anterior" src="" alt="Imagem anterior do veículo" />
+        <ul>
+          <li><strong>Placa:</strong> <span id="ficha-placa"></span></li>
+          <li><strong>Modelo:</strong> <span id="ficha-modelo"></span></li>
+          <li><strong>Histórico:</strong> <span id="ficha-historico"></span></li>
+        </ul>
+      </section>
+    </main>
+  </div>
 </body>
 </html>

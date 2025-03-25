@@ -13,7 +13,7 @@
       <h1>Gestão de Usuários</h1>
     </header>
 
-    <!-- Botão para abrir o modal -->
+    <!-- Ação -->
     <div class="user-actions">
       <button class="add-user-button" onclick="abrirModalAdicionar()">➕ Adicionar Usuário</button>
     </div>
@@ -26,19 +26,21 @@
             <th>Nome</th>
             <th>Email</th>
             <th>Tipo</th>
-            <th>Senha</th>
+            <th>Senha Inspeção</th>
             <th>Status</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody id="user-table-body">
-          <!-- Exemplo de linha de usuário -->
+          <!-- Linhas carregadas dinamicamente -->
           <tr>
             <td>João Silva</td>
             <td>joao@email.com</td>
             <td>Inspetor</td>
             <td>
-              <input type="password" class="user-password" maxlength="3" pattern="^(?!123|234|345|456|567|678|789|890|012|098|987|876|765|654|543|432|321|210)[0-9]{3}$" title="A senha deve conter 3 números não sequenciais" disabled />
+              <input type="password" class="user-password" maxlength="3"
+                pattern="^(?!123|234|345|456|567|678|789|890|012|098|987|876|765|654|543|432|321|210)[0-9]{3}$"
+                title="A senha deve conter 3 números não sequenciais" disabled />
             </td>
             <td>
               <label class="toggle-switch">
@@ -50,13 +52,12 @@
               <button class="edit-button" onclick="editarUsuario(this)">✏️ Editar</button>
             </td>
           </tr>
-          <!-- Outras linhas serão carregadas dinamicamente -->
         </tbody>
       </table>
     </div>
   </div>
 
-  <!-- Modal: Adicionar Novo Usuário -->
+  <!-- Modal: Adicionar Usuário -->
   <div id="modal-adicionar" class="modal hidden">
     <div class="modal-content">
       <h2>Adicionar Novo Usuário</h2>
@@ -65,10 +66,12 @@
           <label for="nome">Nome</label>
           <input type="text" id="nome" name="nome" required />
         </div>
+
         <div class="form-group">
           <label for="email">Email</label>
           <input type="email" id="email" name="email" required />
         </div>
+
         <div class="form-group">
           <label for="tipo">Tipo</label>
           <select id="tipo" name="tipo" required>
@@ -78,10 +81,21 @@
             <option value="Gestor">Gestor</option>
           </select>
         </div>
+
         <div class="form-group">
-          <label for="senha">Senha (3 dígitos, não sequenciais)</label>
-          <input type="password" id="senha" name="senha" maxlength="3" required pattern="^(?!123|234|345|456|567|678|789|890|012|098|987|876|765|654|543|432|321|210)[0-9]{3}$" />
+          <label for="senha-acesso">Senha de Acesso</label>
+          <input type="password" id="senha-acesso" name="senha-acesso" required
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\|,.<>\\/?]).{8,}$"
+            title="Mínimo de 8 caracteres, incluindo maiúscula, minúscula, número e caractere especial" />
         </div>
+
+        <div class="form-group">
+          <label for="senha-inspecao">Senha de Inspeção (3 dígitos não sequenciais)</label>
+          <input type="password" id="senha-inspecao" name="senha-inspecao" maxlength="3" required
+            pattern="^(?!123|234|345|456|567|678|789|890|012|098|987|876|765|654|543|432|321|210)[0-9]{3}$"
+            title="A senha deve conter 3 números e não pode ser uma sequência" />
+        </div>
+
         <div class="modal-actions">
           <button type="submit" class="submit-button">Salvar</button>
           <button type="button" class="cancel-button" onclick="fecharModal('modal-adicionar')">Cancelar</button>

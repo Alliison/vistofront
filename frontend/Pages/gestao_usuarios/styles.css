@@ -1,114 +1,245 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estrutura principal */
+  body {
+    background-color: #f7f9fc;
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
+    padding: 2rem 1rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 800px;
-}
-header {
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Header */
+  header h1 {
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 20px;
-}
-.user-actions {
+    color: #1f3a93;
+  }
+  
+  /* Botão de adicionar usuário */
+  .user-actions {
     text-align: right;
-    margin-bottom: 10px;
-}
-.add-user {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
+  }
+  
+  .add-user-button {
+    background-color: #1f3a93;
     color: white;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-}
-.add-user:hover {
-    background-color: #218838;
-}
-.user-table table {
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-user-button:hover {
+    background-color: #163075;
+  }
+  
+  /* Tabela */
+  .user-table table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
-}
-.user-table th, .user-table td {
-    padding: 10px;
-    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 0.8rem;
     text-align: left;
-}
-.user-table th {
-    background-color: #007bff;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+  }
+  
+  .user-table th {
+    background-color: #f0f3f9;
+    font-weight: bold;
+    color: #1f3a93;
+  }
+  
+  .user-table input[type="password"] {
+    width: 100%;
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+  
+  /* Botão editar */
+  .edit-button {
+    background-color: #f0ad4e;
     color: white;
-}
-.edit {
-    padding: 5px 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
     cursor: pointer;
-    background-color: #ffc107;
-    color: black;
-}
-.edit:hover {
-    background-color: #e0a800;
-}
-.toggle-switch {
+    transition: background-color 0.2s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #d9902e;
+  }
+  
+  /* Toggle switch */
+  .toggle-switch {
     position: relative;
     display: inline-block;
-    width: 34px;
-    height: 20px;
-}
-.toggle-switch input {
+    width: 46px;
+    height: 24px;
+  }
+  
+  .toggle-switch input {
     opacity: 0;
     width: 0;
     height: 0;
-}
-.toggle-slider {
+  }
+  
+  .toggle-slider {
     position: absolute;
     cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
     background-color: #ccc;
-    transition: .4s;
-    border-radius: 20px;
-}
-.toggle-slider:before {
+    transition: .3s;
+    border-radius: 24px;
+  }
+  
+  .toggle-slider:before {
     position: absolute;
     content: "";
-    height: 14px;
-    width: 14px;
+    height: 18px;
+    width: 18px;
     left: 3px;
     bottom: 3px;
     background-color: white;
-    transition: .4s;
+    transition: .3s;
     border-radius: 50%;
-}
-input:checked + .toggle-slider {
-    background-color: #28a745;
-}
-input:checked + .toggle-slider:before {
-    transform: translateX(14px);
-}
-.user-password {
-    width: 60px;
-    text-align: center;
-    padding: 5px;
+  }
+  
+  .toggle-switch input:checked + .toggle-slider {
+    background-color: #1f3a93;
+  }
+  
+  .toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(22px);
+  }
+  
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: #1f3a93;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    pointer-events: none;
-}
-.editable .user-password {
-    background-color: white;
-    pointer-events: auto;
-}
+    border-radius: 6px;
+  }
+  
+  /* Botões do modal */
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  
+  .submit-button {
+    background-color: #1f3a93;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #163075;
+  }
+  
+  .cancel-button {
+    background-color: #ccc;
+    color: #333;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover {
+    background-color: #aaa;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .user-table table, .user-table th, .user-table td {
+      font-size: 0.85rem;
+    }
+  
+    .modal-content {
+      margin: 1rem;
+    }
+  
+    .modal-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+  

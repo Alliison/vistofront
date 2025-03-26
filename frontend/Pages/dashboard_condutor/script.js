@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (!token) {
         alert("Sessão expirada. Faça login novamente.");
-        //window.location.href = "../login/";
+        window.location.href = "../login/";
         return;
     }
 

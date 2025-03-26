@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   
     } catch (err) {
       console.error(err);
-      alert("Erro ao carregar dados do dashboard.");
+      //alert("Erro ao carregar dados do dashboard.");
     }
   });
   

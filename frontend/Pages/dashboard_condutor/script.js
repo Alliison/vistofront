@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     } catch (error) {
         console.error("Erro ao carregar os agendamentos:", error);
-        alert("Erro ao carregar os dados. Tente novamente.");
+        //alert("Erro ao carregar os dados. Tente novamente.");
     }
 });
 

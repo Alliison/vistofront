@@ -3,8 +3,21 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (!token) {
         alert("Sessão expirada. Faça login novamente.");
-        window.location.href = "../login/";
+        //window.location.href = "../login/";
         return;
+    }
+
+    try {
+        // 1. Dados do usuário
+        const resUser = await fetch("https://vistotrack.com/api/users/me", {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const user = await resUser.json();
+        document.getElementById("user-name").textContent = user.user;
+    } catch (error) {
+        console.error("Erro ao carregar o usuário:", error);
+        alert("Erro seu usuário, faça login novamente.");
+        window.location.href = "../login/";
     }
 
     try {
@@ -25,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         // 🔹 Atualizar os indicadores
         document.querySelector(".pending-inspections").textContent = agendaData.pendentes || 0;
         document.querySelector(".completed-inspections").textContent = agendaData.concluidos || 0;
-        document.querySelector(".last-inspection").textContent = agendaData.ultimo_agendamento || "Nenhum agendamento encontrado";
+        document.querySelector(".last-inspection").textContent = agendaData.ultimo_agendamento || "Nenhum Agendamento Encontrado";
 
         // 🔹 Preencher a seção "Próxima Inspeção"
         if (agendaData.proximo_agendamento) {

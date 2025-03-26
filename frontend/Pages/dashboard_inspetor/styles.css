@@ -36,8 +36,16 @@
   
   .status-indicador {
     font-size: 0.9rem;
-    background-color: #ffe9e9;
-    color: #d93025;
+    
+    background-color: #DFF0D8; /* Disponível background */
+    color: #256029; /*Disponível color */
+
+    /* color: #D93025; - indisponivel*/
+    /* background-color: #F2DEDE; - indisponivel */
+
+    /* color: #8A6D3B; - em inspeção */
+    /* background-color: #FCF8E3; - em inspeção */
+
     padding: 0.3rem 0.6rem;
     border-radius: 20px;
     cursor: help;

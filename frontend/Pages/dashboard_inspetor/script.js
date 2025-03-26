@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   
   function abrirModalPerfil() {
-    alert("Seu perfil: (modal em construção com dados de usuário)");
+    window.location.href = `../landingpage/`;
   }
   
   function abrirModalFinalizar() {

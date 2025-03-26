@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           headers: { Authorization: `Bearer ${token}` }
         });
         const user = await resUser.json();
-        document.getElementById("user-name").textContent = user.user;
+        document.getElementById("user-name").textContent = user.name;
     } catch (error) {
         console.error("Erro ao carregar o usuário:", error);
         alert("Erro seu usuário, faça login novamente.");

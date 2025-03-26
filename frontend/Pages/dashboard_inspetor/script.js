@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         headers: { Authorization: `Bearer ${token}` }
       });
       const user = await resUser.json();
-      document.getElementById("inspetor-nome").textContent = user.user;
+      document.getElementById("inspetor-nome").textContent = user.name;
   
       // 2. Relógio ao vivo
       setInterval(() => {

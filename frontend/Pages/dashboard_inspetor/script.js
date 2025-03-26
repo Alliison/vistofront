@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         headers: { Authorization: `Bearer ${token}` }
       });
       const user = await resUser.json();
-      document.getElementById("inspetor-nome").textContent = user.nome;
+      document.getElementById("inspetor-nome").textContent = user.user;
   
       // 2. Relógio ao vivo
       setInterval(() => {
@@ -110,7 +110,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   
   function abrirModalNovaCamera() {
     const nome = prompt("Digite o nome da câmera:");
-    const url = prompt("Cole a URL do stream (ex: rtmp://vistotrack.com/live/camera5):");
     const token = localStorage.getItem("access_token");
   
     fetch("https://vistotrack.com/api/cameras", {
@@ -119,7 +118,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ nome, stream_url: url })
+      body: JSON.stringify({ nome })
     })
       .then(res => {
         if (res.ok) {
